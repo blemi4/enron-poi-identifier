@@ -1,2 +1,2 @@
-# enron-poi-identifier
-Person of Interest Identifier for Enron Corporate Fraud Case
+# Enron POI Classifier
+Person of Interest Classifier for Enron Corporate Fraud Case
