@@ -37,20 +37,12 @@ I tested 3 different classification algorithms: Gaussian Naïve Bayes (GaussianN
 | KNeighborsClassifier | .3604      |    .3130 |
 | Hybrid Classifier | .4099      |    .4560 |
 
-
-
-Classifier	Precision	Recall
-GaussianNB	.2085	.7950
-XGBoost	.4732	.3260
-KNeighborsClassifier	.3604	.3130
-Hybrid Classifier (final)	.4099	.4560
-
-Among the first three classifiers there are pretty large tradeoffs between precision and recall, (a description of these two evaluation metrics will be provided in Part 6) however the hybrid achieves a solid score on both metrics.
+Among the first three classifiers there are pretty large tradeoffs between precision and recall, (a description of these two evaluation metrics will be provided in the Evaluation section) however the hybrid achieves a solid score on both metrics.
 
 ### Parameter Tuning
 Tuning parameters of the algorithm essentially means to optimize the parameters of the algorithm your using in order for it to perform best on a test set.  If the tuning is not done well, the algorithm could potentially overfit/underfit.  
 
-I tuned XGBoost and KNeighborsClassifier for use in the final Hybrid Classifier (GaussianNB does not have any parameters to tune).  To do so, I used GridSearchCV – a function that allows the user to pass in a number of different variables for each parameter the algorithm takes, and provides a score on a user-defined metric using a user defined cross validation technique (validation will be discussed further in Part 5).  I passed in several variables for each parameter, set GridSearchCV to optimize recall (evaluation metrics will be discussed further in Part 6), and set the cross validation to use StratifiedShuffleSplit with 1,000 iterations (again this will be discussed more in Part 5).
+I tuned XGBoost and KNeighborsClassifier for use in the final Hybrid Classifier (GaussianNB does not have any parameters to tune).  To do so, I used GridSearchCV – a function that allows the user to pass in a number of different variables for each parameter the algorithm takes, and provides a score on a user-defined metric using a user defined cross validation technique (validation will be discussed further in the Validation section).  I passed in several variables for each parameter, set GridSearchCV to optimize recall (evaluation metrics will be discussed further in the Evaluation section), and set the cross validation to use StratifiedShuffleSplit with 1,000 iterations (again this will be discussed more in the Validation section).
 
 ### Validation
 Validation essentially means to test your algorithm on data it was not trained on to verify that the results are “valid” in the sense that the model has the correct fit.  It would be a classic mistake to train and validate the algorithm on the same data.  This will likely lead to over-fitting the algorithm and poor performance on data points outside of the initial dataset.
