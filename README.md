@@ -16,7 +16,7 @@ I wrote a short line of code to remove ‘TOTAL’  and reran the plot:
 # Insert Picture
 
 ### Feature Selection
-The following features were used to create a prediction algorithm to classify POI’s (note: this is almost all of the features plus the three highlighted features which I created): ['salary','expenses', 'pct_to_poi', 'pct_from_poi', 'pct_shared_poi', 'exercised_stock_options', 'deferral_payments', 'deferred_income', 'director_fees', 'loan_advances', 'long_term_incentive', 'bonus','other', 'restricted_stock', 'restricted_stock_deferred', 'total_payments', 'total_stock_value'].  My final algorithm is a hybrid of the other three algorithms.  For each of the three, I used scikit-learn’s SelectPercentile function and GridSearchCV function to test which percentile of features to use for each of the algorithms.  Only one of the three algorithms didn’t select 100 percent of the features.  The K Nearest Neighbor model selected 30% of the features:
+The following features were used to create a prediction algorithm to classify POI’s (note: this is almost all of the features included in the data plus the three features which I created  - 'pct_to_poi', 'pct_from_poi', 'pct_shared_poi'): ['salary','expenses', 'pct_to_poi', 'pct_from_poi', 'pct_shared_poi', 'exercised_stock_options', 'deferral_payments', 'deferred_income', 'director_fees', 'loan_advances', 'long_term_incentive', 'bonus','other', 'restricted_stock', 'restricted_stock_deferred', 'total_payments', 'total_stock_value'].  My final algorithm is a hybrid of the other three algorithms.  For each of the three, I used scikit-learn’s SelectPercentile function and GridSearchCV function to test which percentile of features to use for each of the algorithms.  Only one of the three algorithms didn’t select 100 percent of the features.  The K Nearest Neighbor model selected 30% of the features:
 •	Features selected: ['pct_shared_poi', 'total_payments', 'long_term_incentive', 'expenses'] 
 •	Accompanying scores:  [24.815, 24.183, 20.792, 18.290]
 The Extreme Gradient Boosting model selected 85% of features:
@@ -29,6 +29,15 @@ A note on my created features:  The features I created are based on the number o
 
 ### Algorithm Testing and Selection
 I tested 3 different classification algorithms: Gaussian Naïve Bayes (GaussianNB), Extreme Gradient Boosting (XGBoost) and K Nearest Neighbors (KNeighborsClassifier).  I then used scikit-learn’s VotingClassifer function to create a hybrid of all three, which I ended using.  Here are the results:
+| Classifier    | Precision     | Recall|
+| ------------- |--------------:| -----:|
+| GaussianNB    | .2085 | .7950 |
+| XGBoost       | .4732      |   .3260 |
+| KNeighborsClassifier | .3604      |    .3130 |
+| Hybrid Classifier | .4099      |    .4560 |
+
+
+
 Classifier	Precision	Recall
 GaussianNB	.2085	.7950
 XGBoost	.4732	.3260
