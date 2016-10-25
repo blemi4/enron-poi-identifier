@@ -29,6 +29,7 @@ A note on my created features:  The features I created are based on the number o
 
 ### Algorithm Testing and Selection
 I tested 3 different classification algorithms: Gaussian Naïve Bayes (GaussianNB), Extreme Gradient Boosting (XGBoost) and K Nearest Neighbors (KNeighborsClassifier).  I then used scikit-learn’s VotingClassifer function to create a hybrid of all three, which I ended using.  Here are the results:
+
 | Classifier    | Precision     | Recall|
 | ------------- |--------------:| -----:|
 | GaussianNB    | .2085 | .7950 |
