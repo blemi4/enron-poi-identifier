@@ -13,7 +13,7 @@ The dataset consists of 24 features including several different financial featur
 
 I wrote a short line of code to remove ‘TOTAL’  and reran the plot:
 
-![alt text](https://github.com/blemi4/enron-poi-identifier/blob/master/no-outlier.png?raw=true)
+![alt text](https://github.com/blemi4/enron-poi-identifier/blob/master/no%20outlier.png?raw=true)
 
 ### Feature Selection
 The following features were used to create a prediction algorithm to classify POI’s (note: this is almost all of the features included in the data plus the three features which I created  - 'pct_to_poi', 'pct_from_poi', 'pct_shared_poi'): ['salary','expenses', 'pct_to_poi', 'pct_from_poi', 'pct_shared_poi', 'exercised_stock_options', 'deferral_payments', 'deferred_income', 'director_fees', 'loan_advances', 'long_term_incentive', 'bonus','other', 'restricted_stock', 'restricted_stock_deferred', 'total_payments', 'total_stock_value'].  My final algorithm is a hybrid of the other three algorithms.  For each of the three, I used scikit-learn’s SelectPercentile function and GridSearchCV function to test which percentile of features to use for each of the algorithms.  Only one of the three algorithms didn’t select 100 percent of the features.  The K Nearest Neighbor model selected 30% of the features:
