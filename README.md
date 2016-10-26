@@ -17,10 +17,15 @@ I wrote a short line of code to remove ‘TOTAL’  and reran the plot:
 
 ### Feature Selection
 The following features were used to create a prediction algorithm to classify POI’s (note: this is almost all of the features included in the data plus the three features which I created  - 'pct_to_poi', 'pct_from_poi', 'pct_shared_poi'): ['salary','expenses', 'pct_to_poi', 'pct_from_poi', 'pct_shared_poi', 'exercised_stock_options', 'deferral_payments', 'deferred_income', 'director_fees', 'loan_advances', 'long_term_incentive', 'bonus','other', 'restricted_stock', 'restricted_stock_deferred', 'total_payments', 'total_stock_value'].  My final algorithm is a hybrid of the other three algorithms.  For each of the three, I used scikit-learn’s SelectPercentile function and GridSearchCV function to test which percentile of features to use for each of the algorithms.  Only one of the three algorithms didn’t select 100 percent of the features.  The K Nearest Neighbor model selected 30% of the features:
+
 •	Features selected: ['pct_shared_poi', 'total_payments', 'long_term_incentive', 'expenses'] 
+
 •	Accompanying scores:  [24.815, 24.183, 20.792, 18.290]
+
 The Extreme Gradient Boosting model selected 85% of features:
+
 •	Features selected: ['pct_shared_poi', 'total_payments', 'long_term_incentive', 'expenses', 'deferral_payments', 'loan_advances', 'other', 'pct_from_poi', 'restricted_stock_deferred', 'director_fees', 'salary', 'bonus', 'pct_to_poi', 'deferred_income']
+
 •	Accompanying scores:  [24.815, 24.183, 20.792, 18.290, 16.410, 11.458, 9.922, 9.213, 9.101, 8.772, 7.184, 6.094, 4.187, 3.128]
 
 I created three new features: percentage of emails to a POI, percentage of emails from a POI, and percentage of emails shared with a POI.  These scaled features were created from the absolute number of emails to, from, and shared with a POI divided by either the total number of emails from or to the individual.  These features are preferable to the non-scaled versions because their relationship to each other is more telling than the raw numbers.  I also used feature scaling on all three of my algorithms.  Usually, feature scaling would only be necessary for KNeighborsClassifier, because it is based on the Euclidean distance between data points.  However, I used Principal Component Analysis (PCA) in conjunction with feature selection.  PCA essentially compresses the information from several features into a much smaller amount of features.  It does this by comparing the variance of different features, therefore having scaled features to input into PCA is very important.
