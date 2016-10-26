@@ -9,7 +9,7 @@ The goal of this project is to use a machine learning model to predict whether o
 
 The dataset consists of 24 features including several different financial features (such as exercised stock options) and several email features (such as emails from the person to a POI).  There are 145 data points total, 18 of which represent POI’s.  Several of the data points have missing values for some of their fields – I’ve replaced these with zeros.  I discovered an outlier in the data – it is the ‘TOTAL’ of all other data points for each feature.  I discovered this by visualizing expenses vs. salary:
 
-# Insert Picture
+https://github.com/blemi4/enron-poi-identifier/blob/master/outlier.png?raw=true
 
 I wrote a short line of code to remove ‘TOTAL’  and reran the plot:
 
